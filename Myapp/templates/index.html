@@ -1,0 +1,24 @@
+{% extends "./base.html" %}
+{% block title %}Home{% endblock%}
+{% block content %}
+
+<section class="w-full h-[100vh] flex flex-col bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500">
+<nav class="w-full h-14 flex flex-row items-center justify-between p-5 bg-white bg-opacity-45">
+<article class="w-[70%] text-left text-2xl font-serif font-extrabold text-indigo-600 tracking-wide">Social Media</article>
+<ul class="w-[20%] flex flex-row items-center justify-center gap-3">
+<a class="w-[40%] p-1 text-center text-white font-serif font-bold tracking-wide pr-1 pl-1 hover:bg-indigo-400 transition-colors duration-500 bg-indigo-600 rounded-lg" href="{{url_for('register')}}">SignUp</a>
+<a class="w-[40%] p-1 text-center text-white font-serif font-bold tracking-wide pr-1 pl-1 hover:bg-indigo-400 transition-colors duration-500 bg-indigo-600 rounded-lg" href="{{url_for('login')}}">Login</a>
+</ul>
+</nav>
+
+<section class="w-full h-[95vh] flex flex-row items-center justify-center">
+<article class="w-[45%] h-full flex flex-col items-center gap-8 justify-center">
+<h1 class="w-[90%] text-center text-4xl  text-indigo-800 tracking-wide font-serif font-[1000] ">Find Your People. Find Your Place.</h1>
+<p class="w-[90%] text-center text-lg text-white font-serif font-medium tracking-wider">Join private and public groups, share your passions, and connect with people who get you.</p>
+<a href="{{url_for('register')}}" class="p-1 rounded-md bg-indigo-600 text-center text-xl font-serif font-extrabold tracking-wider pr-2 pl-2 text-white hover:bg-indigo-400">Get Started</a>
+</article>
+<img src="../static/assets/image.png" class="w-[55%] h-[70%]">
+</section>
+
+</section>
+ {% endblock %}

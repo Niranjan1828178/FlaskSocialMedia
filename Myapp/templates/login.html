@@ -1,0 +1,65 @@
+{% extends "./base.html" %}
+{% block title %} Login {% endblock %}
+{% block content %}
+   
+ <section class="login h-full w-full bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 bg-[rgb(255,255,255,0.15)]  bg-blend-overlay flex flex-col justify-center">
+<div class="flash_message container mx-auto mt-1 mb-5 text-sm  w-max relative ">
+       {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% set category, message = messages[-1] %}
+                        <div class="p-1 pl-2 pr-2 mb-4 text-green-800 bg-green-100 rounded-lg
+                         {% if category == 'success' %} bg-green-100 text-green-800
+                        {% elif category == 'error' %} bg-red-100 text-red-800
+                        {% else %} bg-blue-100 text-blue-800 {% endif %}
+                        ">
+                            {{ message }}
+                        </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+        <div class="relative m-auto w-[30%]">
+
+        <section class="rounded-full bg-cyan-600 w-28 h-28 flex items-center justify-center 
+                       absolute top-0 left-[48%] -translate-x-[50%] -translate-y-[50%] z-10 
+                       shadow-lg">
+            <i class="fa-solid fa-user fa-2xl"></i>
+        </section>
+
+        <section class="w-full max-w-md flex flex-col items-center gap-8 md:gap-10 
+                       bg-white  backdrop-blur-sm shadow-slate-600 shadow-xl rounded-xl
+                       pt-20 px-6 pb-8 " style="background-color: rgb(255,255,255,0.5);">
+            <article class="text-2xl font-serif md:text-3xl text-indigo-500 font-extrabold tracking-wider">
+                Login
+            </article>
+
+            <form action="{{ url_for('login') }}" method="post" class="w-full flex flex-col gap-4">
+                <article class="flex gap-8 items-center  rounded-md border-2 p-1 font-serif focus:border-indigo-400 " style="border-color: white;"><i class=" pl-3 fa-solid fa-user fa-xl" style="color:rgb(47, 47, 47)"></i> <input type="text" name="username" placeholder="User Name" class="w-[70%] p-3  !bg-transparent rounded-2xl   focus:outline-none placeholder:text-white placeholder:text-opacity-75 " ></article>
+                <article class="flex gap-8 items-center  rounded-md border-2 p-1 font-serif focus:border-indigo-400 " style="border-color: white;"><i class=" pl-3 fa-solid fa-lock"></i> <input type="password" name="password" placeholder="Password" class="w-[70%] p-3  !bg-transparent rounded-2xl   border-transparent focus:outline-none placeholder:text-white placeholder:text-opacity-75"></article>
+               
+                
+                  <article class="flex gap-4 items-center font-serif ">
+                <button type="submit"  class="w-[60%] hover:cursor-pointer bg-indigo-500 text-white font-bold p-3 text-center rounded-md mt-4 hover:bg-indigo-600 transition-colors">
+                    Login
+                </button>
+                <a href="{{url_for('register')}}"  class=" w-[30%] hover:cursor-pointer  text-indigo-600 hover:underline font-bold p-3 text-center rounded-md mt-4 decoration-2 underline-offset-4 transition-colors">
+                    Register
+                </a>
+                </article>
+            </form>
+
+        </section>
+
+    </div>
+    </section>
+
+    <script>
+    window.addEventListener('load', function() {
+    const flashMessages = document.querySelector('.flash_message');
+    if(flashMessages){
+                setTimeout(function() {
+                    flashMessages.style.display = 'none';
+                }, 3000); 
+             }
+        });
+    </script>
+{% endblock %}

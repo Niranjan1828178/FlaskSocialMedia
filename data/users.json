@@ -1,0 +1,18 @@
+{
+    "admin": {
+        "email": "admin@gmail.com",
+        "password": "123456"
+    },
+    "preetham123": {
+        "email": "pree@gmail.com",
+        "password": "12345"
+    },
+    "niranjan123": {
+        "email": "niranjan64461231@gmail.com",
+        "password": "1234"
+    },
+    "vijay123": {
+        "email": "vijay@gmail.com",
+        "password": "12345"
+    }
+}
